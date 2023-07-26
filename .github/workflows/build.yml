@@ -1,0 +1,17 @@
+name: GitHub Actions のお試し
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - run: cat /etc/os-release
+            - run: which ip ifconfig ipconfig || true
+            - run: ip -br route show
+            - run: ip -br addr show
+            - run: ping -c 5 1.1.1.1
+            - run: dig google.com

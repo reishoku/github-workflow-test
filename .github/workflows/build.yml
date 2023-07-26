@@ -6,12 +6,12 @@ on:
 
 jobs:
     build:
-        runs-on: ubuntu-latest
+        runs-on: macos-latest
 
         steps:
-            - run: cat /etc/os-release
-            - run: which ip ifconfig ipconfig || true
-            - run: ip -br route show
-            - run: ip -br addr show
-            - run: ping -c 5 1.1.1.1
-            - run: dig google.com
+            - uses: Homebrew/actions/setup-homebrew@master
+              with:
+                core: true
+                cask: true
+                test-bot: false
+            - run: which brew
